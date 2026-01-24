@@ -1,0 +1,61 @@
+# =====================
+# Python
+# =====================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# =====================
+# Entornos virtuales
+# =====================
+.venv/
+venv/
+env/
+
+# =====================
+# Poetry
+# =====================
+# (poetry.lock SÍ se versiona)
+# .cache de poetry no debe ir al repo
+.poetry/
+.cache/pypoetry/
+
+# =====================
+# Jupyter
+# =====================
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# =====================
+# Datos
+# =====================
+data/raw/
+data/processed/
+
+
+# =====================
+# Reportes y outputs
+# =====================
+reports/figuras/
+outputs/
+results/
+
+# =====================
+# Logs
+# =====================
+*.log
+
+# =====================
+# IDE / Editors
+# =====================
+.kade/
+.idea/
+*.swp
+*.swo
+
+# =====================
+# Sistema operativo
+# =====================
+.DS_Store
+Thumbs.db
