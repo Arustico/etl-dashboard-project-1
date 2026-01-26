@@ -53,6 +53,7 @@ results/
 .idea/
 *.swp
 *.swo
+*.kate-swp
 
 # =====================
 # Sistema operativo
