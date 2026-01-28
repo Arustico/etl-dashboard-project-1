@@ -41,13 +41,20 @@ def extraction_from_3cv(URL_3CV, FILENAME):
     print(f"{SEP} +\n PROCESO FINALIZADO")
 
 
-import os
-from google.cloud.bigquery.client import Client
-
-API_KEY = os.getenv("API_KEY")
 
 
-def init_cliente_gcp(API_KEY):
+from google.cloud import storage
+CREDENTIALS = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+BUCKET_NAME = os.getenv("BUCKET_NAME")
+def init_cliente_gcp(CREDENTIALS):
+    # crear variable local GOOGLE_CREDE
+    client = storage.Client.from_service_account_json(CREDENTIALS)
+    return client
+
+print(f"{SEP}\n CONECTANDO A GCP STORAGE")
+client = init_cliente_gcp(CREDENTIALS)
+for n in client.list_blobs(BUCKET_NAME):
+    print(n)
 
 
 
