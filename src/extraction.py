@@ -2,32 +2,74 @@ import pandas as pd
 import requests
 from io import BytesIO
 from bs4 import BeautifulSoup
+import os
+from dotenv import load_dotenv
 
+load_dotenv("./variables_local.env")
+
+FOLDER_RAW = os.getenv("FOLDER_RAW")
+URL_3CV = os.getenv("URL_3CV")
+FILENAME = "{FOLDER_RAW}+dataraw.csv"
 SEP = 20*"="
-FOLDER_RAW = "./data/raw/"
 
-print(f"{SEP}\n LEYENDO PÁGINA 3CV...")
-print(f"{SEP}\n")
+#print(FOLDER_RAW)
 
-URL_3CV = "https://www.subtrans.gob.cl/3cv/homologacion-de-vehiculos-livianos-medianos-y-motocicletas/"
+def extraction_from_3cv(URL_3CV, FILENAME):
+    """
+    Descarga datos directamente desde 3CV y los guarda con nombre FILENAME
+    en la carpeta FOLDER_RAW
+    """
+    print(f"{SEP}\n LEYENDO PÁGINA 3CV...")
+    print(f"{SEP}\n")
 
-page = requests.get(URL_3CV,verify=False)
-soup = BeautifulSoup(page.content, "html.parser")
-link_data = soup.find(id="brxe-dqzlqf").get("href")
+    page = requests.get(URL_3CV,verify=False)
+    soup = BeautifulSoup(page.content, "html.parser")
+    link_data = soup.find(id="brxe-dqzlqf").get("href")
 
-print(f"{SEP}\n")
-print("EXTRACCIÓN DE DATOS")
+    print(f"{SEP}\n")
+    print("DESCARGA DE DATOS")
 
-# Obtención datos 3CV con url
-response = requests.get(link_data,verify=False)
-if response.status_code == 404:
-    print("\nLink de descarga está desactualizado, o base de datos no subida por 3CV\n")
-    raise Exception("Datos no encontrados")
-elif response.status_code == 200:
-    excel_bytes = BytesIO(response.content)
-    data_df = pd.read_excel(excel_bytes)
-    #  Bajando la data en raw
-    filename = "{FOLDER_RAW}+data_3cv_homolog_raw.csv"
-    data_df.to_csv(filename)
+    # Obtención datos 3CV con url
+    response = requests.get(link_data,verify=False)
+    if response.status_code == 404:
+        print("\nLink de descarga está desactualizado, o base de datos no subida por 3CV\n")
+        print(f"LINK: {link_data}")
+        raise Exception("Datos no encontrados")
+    elif response.status_code == 200:
+        with open(FILENAME, "wb") as f:
+            f.write(response.content)
+    print(f"{SEP} +\n PROCESO FINALIZADO")
 
-print(f"{SEP} +\n PROCESO FINALIZADO")
+
+import os
+from google.cloud.bigquery.client import Client
+
+API_KEY = os.getenv("API_KEY")
+
+
+def init_cliente_gcp(API_KEY):
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
