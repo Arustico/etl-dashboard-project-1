@@ -1,5 +1,4 @@
 #%% LIBRERIAS
-#%% LIBRERIAS
 import pandas as pd
 import os
 import numpy as np
@@ -96,7 +95,7 @@ from dotenv import load_dotenv
 
 load_dotenv("./variables_local.env")
 
-FOLDER_RAW_LOCAL = os.getenv("FOLDER_RAW")
+FOLDER_PRJCT = os.getenv("FOLDER_PRJCT")
 FOLDER_PROCESSED = os.getenv("FOLDER_PROCESSED")
 COLNAMES_FILE = os.getenv("COLNAMES_FILE")
 

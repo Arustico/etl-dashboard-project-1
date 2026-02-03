@@ -1,13 +1,39 @@
 #%% LIBRERIAS
-import pandas as pd
+import logging
 import os
+from pathlib import Path
+from typing import Optional
+
+import pandas as pd
 import numpy as np
-from difflib import SequenceMatcher
 import json
+
 import hashlib
+from datetime import datetime
+from dotenv import load_dotenv
+
+load_dotenv("./variables_local.env")
+
+FOLDER_RAW_LOCAL = os.getenv("FOLDER_RAW")
+FOLDER_PROCESSED = os.getenv("FOLDER_PROCESSED")
+COLNAMES_FILE = os.getenv("COLNAMES_FILE")
+RAWDATANAME = os.getenv("RAWDATANAME", "dataRawHom")
+HASH_LENGHT = os.getenv("HASH_LENGHT")
+
+
+# Configuración básica para .log
+LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
+logging.basicConfig(
+    level=LOG_LEVEL,
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+)
+
+print(LOG_LEVEL)
+logger = logging.getLogger("extraction")
 
 #%% FUNCIONES
-def hashing(name,length=12):
+
+def hashing(name: str,length: int) -> int:
   return hashlib.sha256(name.encode()).hexdigest()[:length]
 
 def find_header_rows(df: pd.DataFrame) -> list:
@@ -21,7 +47,7 @@ def find_header_rows(df: pd.DataFrame) -> list:
 
 def transform_headers(df:pd.DataFrame()) -> dict():
     """
-    Identifica los headers de los dataframes.
+    Identifica y transforma los headers de los dataframes.
     """
     # busqueda de niveles no nulos
     print("Buscando headers")
@@ -57,26 +83,6 @@ def transform_headers(df:pd.DataFrame()) -> dict():
     dictofnames = newcolsname['combcol'].to_dict()
     return [maxrow,valid_levels,levels,dictofnames]
 
-def selectColData(df,colnames):
-    """
-    Lee los datos y transforma correctamente los nombres de las columnas
-    """
-    maxrow,valid_levels,levels,diccols = transform_headers(df)
-    col_data = {}
-    for defaultcol,oldcolname in diccols.items():
-        values = df.loc[maxrow:,defaultcol].tolist()
-        newcolname = renameCol(oldcolname, colnames)
-        col_data[newcolname] = values
-        print(oldcolname,newcolname)
-    # for hd,colname in zip(levels,df.columns):
-    #     if hd is None: continue
-    #     try:
-    #         coldefname = diccols[colname]
-    #         newcolname = renameCol(coldefname)
-    #         values = df.loc[maxrow:,colname].tolist()
-    #         col_data[newcolname] = values
-    #     except: continue
-    return col_data
 
 def renameCol(col,colnames: dict) -> str():
     """
@@ -88,46 +94,50 @@ def renameCol(col,colnames: dict) -> str():
             return colname
         else: return None
 
-from datetime import datetime
-
-with open('./datos/homologacion/campos_hom_data.json') as jsonfile:
-  COLNAMES = json.load(jsonfile)
-
-dicolumns = transform_headers(df)
-def check_hash(hashval,colnames=COLNAMES):
-  for colname,values in colnames.items():
-    if hashval in values['hash']:
-      return True
-  else: return False
 
 
-def newhasvalues(dicolumns):
-  dic = {}
-  k = 0
-  for dfvl,oln in dicolumns.items():
-    hashval = hashing(oln)
-    if check_hash(hashval): continue
-    else:
-      kval = f"key_{k}"
-      dic.update(
-        {kval:{'default':oln,
-               'hash':hashval}
-         })
-    k+=1
-
-  folder = "./datos/tmp"
-  filebase = f"{folder}/campos_hom_tmp"
-  timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-  filename = f"{filebase}_{timestamp}.json"
-  with open(filename, "w") as f:
-     json.dump(dic, f, indent=2)
-  print(f"Archivo guardado en {filename}")
-newhasvalues(dicolumns)
+#%% Lectura y actualización de columnas
 
 
-
-
-
+# with open('./datos/homologacion/campos_hom_data.json') as jsonfile:
+#   COLNAMES = json.load(jsonfile)
+#
+#
+# dicolumns = transform_headers(df)
+#
+# def check_hash(hashval,colnames=COLNAMES):
+#   for colname,values in colnames.items():
+#     if hashval in values['hash']:
+#       return True
+#   else: return False
+#
+#
+# def newhasvalues(dicolumns):
+#   dic = {}
+#   k = 0
+#   for dfvl,oln in dicolumns.items():
+#     hashval = hashing(oln)
+#     if check_hash(hashval): continue
+#     else:
+#       kval = f"key_{k}"
+#       dic.update(
+#         {kval:{'default':oln,
+#                'hash':hashval}
+#          })
+#     k+=1
+#   folder = "./datos/tmp"
+#   filebase = f"{folder}/campos_hom_tmp"
+#   timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+#   filename = f"{filebase}_{timestamp}.json"
+#   with open(filename, "w") as f:
+#      json.dump(dic, f, indent=2)
+#   print(f"Archivo guardado en {filename}")
+# newhasvalues(dicolumns)
+#
+#
+#
+#
+#
 
 
 
