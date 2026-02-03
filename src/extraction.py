@@ -11,8 +11,8 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 from google.cloud import storage
 
-# Cargar variables de entorno (archivo por defecto .env en cwd si existe)
-load_dotenv()
+# Cargar variables de entorno
+load_dotenv("./variables_local.env")
 
 # Configuración básica
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
