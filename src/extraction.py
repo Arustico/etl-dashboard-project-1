@@ -1,6 +1,4 @@
-# Refactor de src/extraction.py
-# Mejoras: logging, manejo de errores, pathlib, type hints, corrección de bugs
-
+# Librerías
 import logging
 from pathlib import Path
 from typing import Optional
@@ -62,7 +60,7 @@ def extraction_from_3cv(
         res = requests.get(url, timeout=15, verify=verify_tls)
         res.raise_for_status()
     except Exception as e:
-        logger.exception("Error al leer la página 3CV")
+        logger.exception("Error al leer la página 3CV: %s",e)
         raise
 
     soup = BeautifulSoup(res.content, "html.parser")
