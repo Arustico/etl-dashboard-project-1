@@ -27,7 +27,8 @@ CREDENTIALS = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
 BUCKET_NAME = os.getenv("BUCKET_NAME")
 RAWDATANAME = os.getenv("RAWDATANAME", "dataRawHom")
 DEFAULT_FILETYPE = os.getenv("DEFAULT_FILETYPE", "xls")
-DEFAULT_VERIFY_TLS = os.getenv("VERIFY_TLS", "true").lower() != "false"
+DEFAULT_VERIFY_TLS = bool(os.getenv("VERIFY_TLS"))
+
 
 def ensure_configured() -> None:
     """Verifica que las variables de entorno mínimas estén presentes."""

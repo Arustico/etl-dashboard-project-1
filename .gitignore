@@ -37,7 +37,7 @@ env/
 # Datos
 # =====================
 data/raw/
-data/processed/
+tmp/
 
 
 # =====================
