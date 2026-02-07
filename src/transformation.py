@@ -99,10 +99,37 @@ def check_data(data: pd.DataFrame) -> None:
 # lectura y filtrado de columnas útiles
 data = select_columnas_utiles()
 # Estandarizacion de nombres de importadores
-data = estandarizacion_importadores(data)
+data = estandarizacion_importadores(data) # un 9% de la data no estaba dentro de las bases de importadores
+data = data[0]
 
-print(data[1])
+#
+# not_found_impt = data[1]
+# data = data[0]
+# N = len(data)
+# ratio_not_found = list(map(lambda imp: 100*len(data[data["IMPORTADOR"]==imp])/N, not_found_impt))
+# df_imp_notfound = pd.DataFrame({"IMPORTADOR":not_found_impt,"RATIO":ratio_not_found})
+# df_imp_notfound = df_imp_notfound.sort_values(by="RATIO",ascending=False).reset_index()
+# print(df_imp_notfound.head(10),df_imp_notfound.iloc[0:10,2].sum())
+
+# Transformaciones dtype
+logging.info("Transformaciones según tipo de datos por columna...")
+# Fecha
+data['FECHA_HOM'] = data['FECHA_HOM'].replace('-',pd.NA)
+data['FECHA_HOM'] = data['FECHA_HOM'].ffill()
+data['FECHA_HOM'] = pd.to_datetime(data['FECHA_HOM'])
+
+# Rendimientos
+#data['REND_PON_HIB_KML'] = pd.to_numeric(data['REND_PON_HIB_KML'],errors='coerce')
+data['REND_MIXTO_KML'] = data['REND_MIXTO_KML'].replace('-',pd.NA)
+data['REND_MIXTO_KML'] = pd.to_numeric(data['REND_MIXTO_KML'],errors='coerce')
+data.loc[data['REND_MIXTO_KML'].isna(),'REND_MIXTO_KML'] = data.loc[:,'REND_MIXTO_KML'].mean()
+
+# Peso bruto
+# El valor - coresponde al valor anterior
+data['PBV_KG'] = data['PBV_KG'].replace('-',pd.NA)
+data['PBV_KG'] = data['PBV_KG'].ffill()
+data['PBV_KG'] = pd.to_numeric(data['PBV_KG'])
 
 
 
-
+check_data(data)

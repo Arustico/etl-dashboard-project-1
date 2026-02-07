@@ -60,6 +60,7 @@ results/
 *.swp
 *.swo
 *.kate-swp
+*.~lock*
 
 # =====================
 # Sistema operativo

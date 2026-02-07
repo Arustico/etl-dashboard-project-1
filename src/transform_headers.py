@@ -128,7 +128,7 @@ def search_closest_colname(col: str, colnames_df: dict) -> str:
 
 def update_standard_column_names(colnames: dict) -> None:
     logging.info("Actualizando base de datos de campos estandarizados...")
-    filename = f"{FOLDER_PROCESSED}campos_hom_tmp.json"
+    filename = f"{FOLDER_PROCESSED}campos_hom.json"
     if colnames:
         with open(filename, "w") as f:
             json.dump(colnames, f, indent=2)
