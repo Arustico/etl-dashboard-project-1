@@ -84,7 +84,7 @@ def estandarizacion_importadores(data: pd.DataFrame) -> pd.DataFrame:
             data.loc[data['IMPORTADOR']==name,'IMPORTADOR'] = stdname
         else:
             imp_not_found.append(name)
-    logging.info("Estandarización de impotadores completada con éxito")
+    logging.info("Estandarización de importadores completada con éxito")
     return [data,imp_not_found]
 
 def check_data(data: pd.DataFrame) -> None:
@@ -117,6 +117,17 @@ logging.info("Transformaciones según tipo de datos por columna...")
 data['FECHA_HOM'] = data['FECHA_HOM'].replace('-',pd.NA)
 data['FECHA_HOM'] = data['FECHA_HOM'].ffill()
 data['FECHA_HOM'] = pd.to_datetime(data['FECHA_HOM'])
+# Creacion de año
+data['AÑO'] = data['FECHA_HOM'].dt.year
+
+# Asignacion de tipo de propulsión
+data['CATEG_PROP'] = ''
+data.loc[data['PROPULSION'].isin(['Combustión','Vehículos híbridos sin recarga exterior',
+                                     'Eléctrico de Rango Extendido']),'CATEG_PROP']='ICE'
+data.loc[data['PROPULSION'].isin(['Combustión','Eléctrico de Rango Extendido']),'CATEG_PROP']='ICE'
+data.loc[data['PROPULSION'].isin(['Vehículo eléctrico']),'CATEG_PROP']='BEV'
+data.loc[data['PROPULSION'].isin(['Vehículos híbrido con recarga exterior']),'CATEG_PROP']='PHEV'
+data.loc[data['PROPULSION'].isin(['Vehículos híbridos sin recarga exterior']),'CATEG_PROP']='HEV'
 
 # Rendimientos
 #data['REND_PON_HIB_KML'] = pd.to_numeric(data['REND_PON_HIB_KML'],errors='coerce')
@@ -131,5 +142,33 @@ data['PBV_KG'] = data['PBV_KG'].ffill()
 data['PBV_KG'] = pd.to_numeric(data['PBV_KG'])
 
 
+# Cálculo de rendimiento equivalente
+data['REND_EQUIV'] = ''
+# Para combustibles e híbridos no enchufables es el mixto
+bools_hb = data['PROPULSION'].isin(
+  ['Combustión','Vehículos híbridos sin recarga exterior',
+   'Eléctrico de Rango Extendido'])
+#data.loc[bools_hb,'REND_EQUIV'] = data.loc[bools_hb,'REND_MIXTO_KML']
+
+bools_diesel = data['COMBUSTIBLE'].isin(['Diésel','Diésel '])
+#data.loc[bools_diesel,'REND_EQUIV'] = data.loc[bools_diesel,'REND_EQUIV']*0.87
+
+# Para híbridos enchufables es el de ciudad: Usaremos REND_PON_HIB_KML
+# (más cercano al de cumplimiento. Se necesita valores de autonomía)
+bools_hb2 = data['PROPULSION'].isin(
+  ['Vehículos híbrido con recarga exterior',
+   'Eléctrico híbrido con recarga exterior'
+   ])
+#data.loc[bools_hb2,'REND_EQUIV'] = data.loc[bools_hb2,'REND_PON_HIB_KML']
+
+# Para eléctricos el factor de conversión es:
+dens_ener_gas = 8.60
+bools_ev = data['PROPULSION'].isin(['Vehículo eléctrico'])
+#rnd = pd.to_numeric(data.loc[bools_ev,'REND_EV_KMKWH'].replace('-',np.nan))
+#rnd = rnd.fillna(rnd.mean())
+#data.loc[bools_ev,'REND_EQUIV'] = rnd*dens_ener_gas
+
 
 check_data(data)
+
+

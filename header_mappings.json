@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "total_headers": 7,
+    "method": "rules",
+    "version": "1.1"
+  },
+  "mappings": [
+    {
+      "original": "Artículo 4° Nonies, D.S. 211/91 Ministerio de Transportes y Telecomunicaciones (Estándar Superior)",
+      "simplified": "ref",
+      "hash_id": "878100d6fedf",
+      "metadata": {
+        "method": "rules",
+        "length_original": 98,
+        "length_simplified": 3,
+        "reduction_percent": 96.9
+      }
+    },
+    {
+      "original": "CO2 combinado_(g/km)",
+      "simplified": "co2_comb",
+      "hash_id": "a1f9b5f37aba",
+      "metadata": {
+        "method": "rules",
+        "length_original": 20,
+        "length_simplified": 8,
+        "reduction_percent": 60.0
+      }
+    },
+    {
+      "original": "Categoría vehículo",
+      "simplified": "categor_a_veh_culo",
+      "hash_id": "0b3ac6748a30",
+      "metadata": {
+        "method": "rules",
+        "length_original": 18,
+        "length_simplified": 18,
+        "reduction_percent": 0.0
+      }
+    },
+    {
+      "original": "Ciclo WLTC\nVehículo Híbrido con Recarga Exterior\nEmisiones de CO2\n_CONDICIÓN COMBINADO CS (*)  g/km",
+      "simplified": "co2_cond_comb_cs",
+      "hash_id": "3baf584e9138",
+      "metadata": {
+        "method": "rules",
+        "length_original": 99,
+        "length_simplified": 16,
+        "reduction_percent": 83.8
+      }
+    },
+    {
+      "original": "Ciclo WLTC\nVehículo Híbrido con Recarga Exterior\nEmisiones de CO2\n_CONDICIÓN COMBINADO CD (**) g/km",
+      "simplified": "co2_cond_comb_cd",
+      "hash_id": "40ca7d574b94",
+      "metadata": {
+        "method": "rules",
+        "length_original": 99,
+        "length_simplified": 16,
+        "reduction_percent": 83.8
+      }
+    },
+    {
+      "original": "Ciclo WLTC\nVehículo Híbrido con Recarga Exterior Emisiones de CO2 PONDERADA g/km",
+      "simplified": "co2_pond",
+      "hash_id": "ffeec6d58997",
+      "metadata": {
+        "method": "rules",
+        "length_original": 80,
+        "length_simplified": 8,
+        "reduction_percent": 90.0
+      }
+    },
+    {
+      "original": "Ciclo WLTC Vehículo Híbrido con Recarga Exterior Consumo de combustible (km/l) (*):_Condición CS: Mantenimiento de carga_Urbano sin Autopista (km/l)",
+      "simplified": "consumo_cond_cs_mantenimiento_de_carga_urbano_sin",
+      "hash_id": "89b8779e658a",
+      "metadata": {
+        "method": "rules",
+        "length_original": 148,
+        "length_simplified": 49,
+        "reduction_percent": 66.9
+      }
+    }
+  ]
+}

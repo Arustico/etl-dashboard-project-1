@@ -102,7 +102,6 @@ def renameCol(col,colnames: dict) -> str():
         else:
             return None
 
-
 def check_hash(hashval,colnames: dict) -> bool:
     " Devuelve True si está en la BD de campos"
     for colname,values in colnames.items():
@@ -118,23 +117,29 @@ def column_json2df(colnames: dict) -> pd.DataFrame:
     df = df.reset_index(drop=True)
     return df
 
-def search_closest_colname(col: str, colnames_df: dict) -> str:
-    # Entrega un pd.Series con los índices del dataframe y valores de ratio de semejanza entre nombres de columna del 3CV registrados en campos_hom.json y el nombre que no tiene un nombre estandar.
+def search_closest_colname(col: str, colnames_df: dict, ratio_min = 0.9) -> str:
+    # Entrega un pd.Series con los índices del dataframe y valores de ratio de semejanza entre nombres de columna del 3CV registrados en campos_hom_data.json y el nombre que no tiene un nombre estandar.
     closest_values = colnames_df['3CV_NAMES'].apply(lambda dcol: SequenceMatcher(lambda jnk: jnk in [" ","\n"], col,dcol).ratio())
+    #print(closest_values.max())
     # Sacamos el más semejante y su nombre estandar registrado (este se encuentra en el registro COLNAMES)
-    stdr_name = colnames_df.iloc[closest_values.argmax()]["STANDARD_NAME"]
+    if closest_values.max()>ratio_min:
+        stdr_name = colnames_df.iloc[closest_values.argmax()]["STANDARD_NAME"]
+    else:
+        stdr_name = None
     return stdr_name
 
-
-def update_standard_column_names(colnames: dict) -> None:
-    logging.info("Actualizando base de datos de campos estandarizados...")
-    filename = f"{FOLDER_PROCESSED}campos_hom.json"
-    if colnames:
-        with open(filename, "w") as f:
-            json.dump(colnames, f, indent=2)
-            logging.info("Datos guardados en: %s", filename)
-    else:
-        raise ValueError("Datos vacíos: No guardado")
+def inputcolname_manual(colname:str):
+    logging.info("Estandarización manual ...")
+    confirm = "n"
+    def __rename():
+        print(f"Renombrar {colname}:")
+        stdcolname = input()
+        return stdcolname
+    while confirm.lower() == "n":
+        stdcolname = __rename()
+        confirm = input(f"y/n para confirmar: {stdcolname} (default y): ")
+        if confirm.lower() not in ["n","y"]: raise ValueError("No válido solo 'y' o 'n'")
+    return stdcolname
 
 
 def estandarizacion_columnas(datos: pd.DataFrame, datacolnames: dict, colnames: dict) -> list:
@@ -143,14 +148,33 @@ def estandarizacion_columnas(datos: pd.DataFrame, datacolnames: dict, colnames: 
     for unnamedk,defcolname in datacolnames.items():
         hashvalue = hashing(defcolname)
         if check_hash(hashvalue,colnames):
-            standars_colname[unnamedk] = renameCol(defcolname,colnames)
+            new_stdr_name = renameCol(defcolname,colnames)
+            standars_colname[unnamedk] = new_stdr_name
         else:
+            # Trata de buscar el más cercano
             closest_stdr_name = search_closest_colname(defcolname,df_colnames)
+            if closest_stdr_name:
+                new_stdr_name = closest_stdr_name
+            else:
+                new_stdr_name = inputcolname_manual(defcolname)
+                colnames.update({new_stdr_name: {"default":list(),"hash":list()}})
             # update the colnames
-            colnames[closest_stdr_name]["default"].append(defcolname)
-            colnames[closest_stdr_name]["hash"].append(hashvalue)
-            standars_colname[unnamedk] = closest_stdr_name
+            colnames[new_stdr_name]["default"].append(defcolname)
+            colnames[new_stdr_name]["hash"].append(hashvalue)
+            standars_colname[unnamedk] = new_stdr_name
+        logging.info(f"  {defcolname}  -->  {new_stdr_name}")
     return [colnames,standars_colname]
+
+def write_updated_standard_columns(colnames: dict) -> None:
+    logging.info("Actualizando base de datos de campos estandarizados...")
+    filename = f"{FOLDER_PROCESSED}campos_hom_data.json"
+    if colnames:
+        with open(filename, "w") as f:
+            json.dump(colnames, f, indent=2)
+            logging.info("Datos guardados en: %s", filename)
+    else:
+        raise ValueError("Datos vacíos: No guardado")
+
 
 def transform_headers_main() -> list:
     #%% Lectura y actualización de columnas
@@ -167,23 +191,13 @@ def transform_headers_main() -> list:
     data = []
     for g,df in data_aux.items():
         maxrow,data_colnames = identify_headers(df)
+        print(data_colnames.values())
         colnames_updated,standard_dic = estandarizacion_columnas(df,data_colnames,COLNAMES)
         df2 = df.rename(columns = standard_dic)
         df2 = df2.iloc[maxrow:,:]
-        update_standard_column_names(colnames_updated)
+        write_updated_standard_columns(colnames_updated)
         data.append(df2)
     return data
 
-
-#nedf = transform_headers_main()
-
-#FOLDER_TMP.mkdir(parents=True, exist_ok=True)
-#filename = FOLDER_TMP / "datos_tmp.csv"
-#logging.info("TESTEANDO:...")
-#nedf[1].to_csv(filename)
-#logging.info("Se guarda archivo test: %s",filename)
-
-
-
-
+transform_headers_main()
 
