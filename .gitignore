@@ -47,6 +47,7 @@ reports/figuras/
 outputs/
 results/
 
+
 # =====================
 # Logs
 # =====================
@@ -67,3 +68,10 @@ results/
 # =====================
 .DS_Store
 Thumbs.db
+
+# =====================
+# Archivos específicos
+# =====================
+src/testing_code.py
+
+

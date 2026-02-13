@@ -82,7 +82,7 @@ def identify_headers(df:pd.DataFrame()) -> dict():
         gr = gr.fillna("")
         newcolsname.append(gr)
     newcolsname = pd.concat(newcolsname)
-    newcolsname['combcol'] = newcolsname[levels].apply(lambda row: "_".join([str(v) for v in row if (v != "")
+    newcolsname['combcol'] = newcolsname[levels].apply(lambda row: " ".join([str(v) for v in row if (v != "")
                                                                              and("Unnamed:" not in v)]), axis=1)
     newcolsname = newcolsname[['index','combcol']]
     newcolsname = newcolsname.set_index('index')
@@ -198,6 +198,4 @@ def transform_headers_main() -> list:
         write_updated_standard_columns(colnames_updated)
         data.append(df2)
     return data
-
-transform_headers_main()
 

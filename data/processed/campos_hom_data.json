@@ -1,481 +1,594 @@
 {
-  "MARCA": {
-    "hash": [
-      "8e2ca9b0cc8a"
+  "ANCHO_VH_MM": {
+    "original_names": [
+      "Ancho vehículo (mm)"
     ],
-    "default": [
-      "Marca"
+    "hashes": [
+      "fc1279207098"
     ]
   },
-  "MODELO": {
-    "hash": [
-      "a5ab3212dad1"
+  "ART_DS_MTT_ESTD_SUP": {
+    "original_names": [
+      "Artículo 4° Nonies, D.S. 211/91 Ministerio de Transportes y Telecomunicaciones (Estándar Superior)"
     ],
-    "default": [
-      "Modelo"
-    ]
-  },
-  "TRANSMISION": {
-    "hash": [
-      "a3c48cd785e9"
-    ],
-    "default": [
-      "Transmisi\u00f3n"
-    ]
-  },
-  "COMBUSTIBLE": {
-    "hash": [
-      "832880bbaaa4"
-    ],
-    "default": [
-      "Combustible"
-    ]
-  },
-  "PROPULSION": {
-    "hash": [
-      "4734109e48a0"
-    ],
-    "default": [
-      "Propulsi\u00f3n"
-    ]
-  },
-  "CILINDRADA_LTS": {
-    "hash": [
-      "5b7c8364c1ed"
-    ],
-    "default": [
-      "Cilindrada (Lts.)"
-    ]
-  },
-  "CARROCERIA": {
-    "hash": [
-      "0207cce54a62"
-    ],
-    "default": [
-      "Tipo de Carroceria"
-    ]
-  },
-  "COD_INF_TEC": {
-    "hash": [
-      "887c2ce4b41a"
-    ],
-    "default": [
-      "C\u00f3digo de Informe T\u00e9cnico"
-    ]
-  },
-  "NUM_CERT": {
-    "hash": [
-      "a887ff477cda"
-    ],
-    "default": [
-      "N\u00b0 Cert."
-    ]
-  },
-  "FECHA_HOM": {
-    "hash": [
-      "e0df394ae9fd"
-    ],
-    "default": [
-      "Fecha de Homologaci\u00f3n"
-    ]
-  },
-  "NOR_UE_CO": {
-    "hash": [
-      "af72e2ea346e","e00eaa3708dd"
-    ],
-    "default": [
-      "Norma Europea_CO \n(g/km)","Norma Europea_CO (g/km)"
-    ]
-  },
-  "NOR_UE_HC": {
-    "hash": [
-      "89e99c6af76e","d1c7d251393d"
-    ],
-    "default": [
-      "Norma Europea_HC \n(g/km)","Norma Europea_HC (g/km)"
-    ]
-  },
-  "NOR_UE_NOX": {
-    "hash": [
-      "c4e620ed9298"
-    ],
-    "default": [
-      "Norma Europea_NOx (g/km)"
-    ]
-  },
-  "NOR_UE_HCNM": {
-    "hash": [
-      "d8a80c916b01"
-    ],
-    "default": [
-      "Norma Europea_HCNM (g/km)"
-    ]
-  },
-  "NOR_UE_NMOG": {
-    "hash": [
-      "c8c7058a15ba"
-    ],
-    "default": [
-      "Norma Europea_NMOG (g/km)"
-    ]
-  },
-  "NOR_UE_HCHO": {
-    "hash": [
-      "e8646f27c98e"
-    ],
-    "default": [
-      "Norma Europea_HCHO (mg/km)"
-    ]
-  },
-  "NOR_UE_HCNOX": {
-    "hash": [
-      "266c130cd4c9"
-    ],
-    "default": [
-      "Norma Europea_HC+NOx (g/km)"
-    ]
-  },
-  "NOR_UE_MP": {
-    "hash": [
-      "14faaa9db038"
-    ],
-    "default": [
-      "Norma Europea_Masa de Part\u00edculas MP (g/km)"
-    ]
-  },
-  "NOR_UE_NP": {
-    "hash": [
-      "31455bf58251","5772d0cc621c"
-    ],
-    "default": [
-      "Norma Europea_N\u00famero de Part\u00edculas \nP (#/km)"
-    ]
-  },
-  "NOR_USA_CO": {
-    "hash": [
-      "e418bbac9b5a","6e9d23936d80"
-    ],
-    "default": [
-      "Norma USA - EPA  (50.000 / 120.000 - 150.000 millas)_CO   (g/km)",
-      "Norma USA - EPA_CO (g/km)"
-    ]
-  },
-  "NOR_USA_HC": {
-    "hash": [
-      "42189d270e40","868c342330cc"
-    ],
-    "default": [
-      "Norma USA - EPA  (50.000 / 120.000 - 150.000 millas)_HC   (g/km)",
-      "Norma USA - EPA_HC (g/km)"
-    ]
-  },
-  "NOR_USA_NOX": {
-    "hash": [
-      "79496407521b","6bb68dc61e47"
-    ],
-    "default": [
-      "Norma USA - EPA  (50.000 / 120.000 - 150.000 millas)_NOx (g/km)",
-      "Norma USA - EPA_NOx (g/km)"
-    ]
-  },
-  "NOR_USA_NMOG": {
-    "hash": [
-      "f14396f58192","499d3a2c542e"
-    ],
-    "default": [
-      "Norma USA - EPA  (50.000 / 120.000 - 150.000 millas)_NMOG (g/km)",
-      "Norma USA - EPA_NMOG (g/km)"
-    ]
-  },
-  "NOR_USA_HCHO": {
-    "hash": [
-      "0c7b67a2c1e2","47adec2f956b"
-    ],
-    "default": [
-      "Norma USA - EPA  (50.000 / 120.000 - 150.000 millas)_HCHO (mg/km)",
-      "Norma USA - EPA_HCHO (mg/km)"
-    ]
-  },
-  "NOR_USA_MP": {
-    "hash": [
-      "fc40c257c604","b531f5085f3b"
-    ],
-    "default": [
-      "Norma USA - EPA  (50.000 / 120.000 - 150.000 millas)_Masa de Part\u00edculas MP (g/km)",
-      "Norma USA - EPA_Masa de Part\u00edculas MP (g/km)"
-    ]
-  },
-  "NOR_USA_HCNM": {
-    "hash": [
-      "aa08a1867f44","c8e394ec5f74"
-    ],
-    "default": [
-      "Norma USA - EPA  (50.000 / 120.000 - 150.000 millas)_HCNM (g/km)",
-      "Norma USA - EPA_HCNM (g/km)"
-    ]
-  },
-  "NOR_USA_N2O": {
-    "hash": [
-      "c0590ef5e500"
-    ],
-    "default": [
-      "Norma USA - EPA  (50.000 / 120.000 - 150.000 millas)_N2O"
-    ]
-  },
-  "NOR_USA_NMOG-NOX": {
-    "hash": [
-      "df4d2a471181"
-    ],
-    "default": [
-      "Norma USA - EPA  (50.000 / 120.000 - 150.000 millas)_NMOG+NOx"
-    ]
-  },
-  "NORM_EMIS": {
-    "hash": [
-      "44751a70a3ff"
-    ],
-    "default": [
-      "NORMA EMISIONES"
-    ]
-  },
-  "EMIS_CO2_GKM": {
-    "hash": [
-      "0905cf6e3ea8"
-    ],
-    "default": [
-      "Emisiones de CO2 (g/km)"
-    ]
-  },
-  "REND_CIUDAD_KML": {
-    "hash": [
-      "c63019ae357d"
-    ],
-    "default": [
-      "Rendimiento de \nCombustible (km/l)_Ciudad"
-    ]
-  },
-  "REND_CARRETERA_KML": {
-    "hash": [
-      "616dcba1e69a"
-    ],
-    "default": [
-      "Rendimiento de \nCombustible (km/l)_Carretera"
-    ]
-  },
-  "REND_MIXTO_KML": {
-    "hash": [
-      "13c9d0967308"
-    ],
-    "default": [
-      "Rendimiento de \nCombustible (km/l)_Mixto"
+    "hashes": [
+      "cd8ef466feaa"
     ]
   },
   "CO2_COMB_GKM": {
-    "hash": [
-      "dc802498fa18"
+    "original_names": [
+      "(g/km) CO2 combinado"
     ],
-    "default": [
-      "CO2 combinado_(g/km)"
+    "hashes": [
+      "eac2c19b0d6f"
     ]
   },
-  "REND_WLTC_URB_SINAUTOP": {
-    "hash": [
-      "f72c43e73fd9"
+  "CATEGORIA_VH": {
+    "original_names": [
+      "Categoría vehículo"
     ],
-    "default": [
-      "Rendimiento km/l Ciclo WLTC_Urbano sin Autopista_(km/l)"
-    ]
-  },
-  "REND_WLTC_URB_CONAUTOP": {
-    "hash": [
-      "e046fda73687"
-    ],
-    "default": [
-      "Rendimiento km/l Ciclo WLTC_Urbano con Autopista Urbana_(km/l)"
-    ]
-  },
-  "REND_WLTC_RUR_CONAUTOP": {
-    "hash": [
-      "3c32354f6e72"
-    ],
-    "default": [
-      "Rendimiento km/l Ciclo WLTC_Rural con Autopista_(km/l)"
-    ]
-  },
-  "REND_WLTC_AUTOP_INTER": {
-    "hash": [
-      "77ec4a7373ab"
-    ],
-    "default": [
-      "Rendimiento km/l Ciclo WLTC_Autopista Interurbana_(km/l)"
-    ]
-  },
-  "REND_WLTC_COMB": {
-    "hash": [
-      "3e95069736c9"
-    ],
-    "default": [
-      "Rendimiento km/l Ciclo WLTC_Combinado_(km/l)"
-    ]
-  },
-  "REND_EV_KMKWH": {
-    "hash": [
-      "e8f7a03ec54b"
-    ],
-    "default": [
-      "Veh\u00edculo El\u00e9ctrico Puro_Rendimiento El\u00e9ctrico  (km/kwh)"
-    ]
-  },
-  "REND_FC_HIGH_KGKM": {
-    "hash": [
-      "3369bf8bf4a6"
-    ],
-    "default": [
-      "FCEV (Veh\u00edculo Celda de Hidr\u00f3geno)_Rendimiento (kg/100 km) Hight"
-    ]
-  },
-  "REND_FC_LOW_KGKM": {
-    "hash": [
-      "44c21ed60c45"
-    ],
-    "default": [
-      "FCEV (Veh\u00edculo Celda de Hidr\u00f3geno)_Rendimiento (kg/100 km) Low"
-    ]
-  },
-  "CO2_PON_HIB_GKM": {
-    "hash": [
-      "e8662b5cc73f"
-    ],
-    "default": [
-      "Veh\u00edculo H\u00edbrido con Recarga Exterior Rendimiento Ponderado_CO2 Ponderado (g/km)"
-    ]
-  },
-  "REND_PON_HIB_KML": {
-    "hash": [
-      "098602ba8f20"
-    ],
-    "default": [
-      "Veh\u00edculo H\u00edbrido con Recarga Exterior Rendimiento Ponderado_Combustible (km/l)"
-    ]
-  },
-  "REND_ELEC_HIB": {
-    "hash": [
-      "83079a4ecd63"
-    ],
-    "default": [
-      "Veh\u00edculo H\u00edbrido con Recarga Exterior Rendimiento Ponderado_El\u00e9ctrico (km/kWh)"
-    ]
-  },
-  "CO2_GAS_GKM": {
-    "hash": [
-      "eef4a5dad0d5"
-    ],
-    "default": [
-      "Veh\u00edculos Duales (Gasolina-GLP / Gasolina -GNC)_CO2 \n(gr/km)"
-    ]
-  },
-  "REND_GAS_CIUDAD_KML": {
-    "hash": [
-      "1b2da570ae97"
-    ],
-    "default": [
-      "Veh\u00edculos Duales (Gasolina-GLP / Gasolina -GNC)_Rendimiento Gasolina (km/l)_ Ciudad"
-    ]
-  },
-  "REND_GAS_CARRETERA": {
-    "hash": [
-      "b1f4b123e66f"
-    ],
-    "default": [
-      "Veh\u00edculos Duales (Gasolina-GLP / Gasolina -GNC)_Rendimiento Gasolina (km/l)_Carretera"
-    ]
-  },
-  "REND_GAS_MIXTO_KML": {
-    "hash": [
-      "c396c15fb696"
-    ],
-    "default": [
-      "Veh\u00edculos Duales (Gasolina-GLP / Gasolina -GNC)_Rendimiento Gasolina (km/l)_Mixto"
-    ]
-  },
-  "REND_GAS_CIUDAD_KML": {
-    "hash": [
-      "eef4a5dad0d5"
-    ],
-    "default": [
-      "Veh\u00edculos Duales (Gasolina-GLP / Gasolina -GNC)_CO2 \n(gr/km)"
-    ]
-  },
-  "key_50": {
-    "hash": [
-      "98ea64a3e860"
-    ],
-    "default": [
-      "Veh\u00edculos Duales (Gasolina-GLP / Gasolina -GNC)_Rendimiento (GLP-GNC) (km/l)_ Ciudad"
-    ]
-  },
-  "key_51": {
-    "hash": [
-      "61a07706c807"
-    ],
-    "default": [
-      "Veh\u00edculos Duales (Gasolina-GLP / Gasolina -GNC)_Rendimiento (GLP-GNC) (km/l)_Carretera"
-    ]
-  },
-  "key_52": {
-    "hash": [
-      "16128b0c8d98"
-    ],
-    "default": [
-      "Veh\u00edculos Duales (Gasolina-GLP / Gasolina -GNC)_Rendimiento (GLP-GNC) (km/l)_Mixto"
-    ]
-  },
-  "CATEGORIA": {
-    "hash": [
+    "hashes": [
       "81ed0fe5cac2"
-    ],
-    "default": [
-      "Categor\u00eda veh\u00edculo"
     ]
   },
-  "PBV_KG": {
-    "hash": [
-      "0f8ca378c472"
+  "COMB_CS_PHEV_EMIS_CO2_WLTC_VH_GKM": {
+    "original_names": [
+      "CONDICIÓN COMBINADO CS (*) \ng/km Ciclo WLTC\nVehículo Híbrido con Recarga Exterior\nEmisiones de CO2\n"
     ],
-    "default": [
-      "P.B.V.              (kg)"
+    "hashes": [
+      "fe795da5a342"
+    ]
+  },
+  "COMB_CD_PHEV_EMIS_CO2_WLTC_VH_GKM": {
+    "original_names": [
+      "CONDICIÓN COMBINADO CD (**)\ng/km Ciclo WLTC\nVehículo Híbrido con Recarga Exterior\nEmisiones de CO2\n"
+    ],
+    "hashes": [
+      "ed64c20c02d2"
+    ]
+  },
+  "POND_PHEV_EMIS_CO2_WLTC_VH_GKM": {
+    "original_names": [
+      "PONDERADA \ng/km Ciclo WLTC\nVehículo Híbrido con Recarga Exterior\nEmisiones de CO2\n"
+    ],
+    "hashes": [
+      "1d992ffc0548"
+    ]
+  },
+  "URB_PHEV_CS_MANTEN_CARGA_WLTC_VH_CONSUM_COMBUSTIBLE_KML": {
+    "original_names": [
+      "Urbano sin Autopista\n(km/l) Condición CS: Mantenimiento de carga Ciclo WLTC Vehículo Híbrido con Recarga Exterior Consumo de combustible (km/l) (*):"
+    ],
+    "hashes": [
+      "08b99d896b50"
+    ]
+  },
+  "URB_AUTOP_PHEV_WLTC_VH_CONSUM_COMBUSTIBLE_KML": {
+    "original_names": [
+      "Urbano con Autopista\n(km/l)\n Ciclo WLTC Vehículo Híbrido con Recarga Exterior Consumo de combustible (km/l) (*):"
+    ],
+    "hashes": [
+      "5112c78cd8d0"
+    ]
+  },
+  "AUTOP_PHEV_RURAL_WLTC_VH_CONSUM_COMBUSTIBLE_KML": {
+    "original_names": [
+      "Rural con Autopista\n(km/l) Ciclo WLTC Vehículo Híbrido con Recarga Exterior Consumo de combustible (km/l) (*):"
+    ],
+    "hashes": [
+      "f79091b09820"
+    ]
+  },
+  "PHEV_AUTO_INTERURB_WLTC_VH_CONSUM_COMBUSTIBLE_KML": {
+    "original_names": [
+      "Autopista Interurbana\n(km/l) Ciclo WLTC Vehículo Híbrido con Recarga Exterior Consumo de combustible (km/l) (*):"
+    ],
+    "hashes": [
+      "2ca7028a4791"
+    ]
+  },
+  "COMB_PHEV_WLTC_VH_CONSUM_COMBUSTIBLE_KML": {
+    "original_names": [
+      "Combinado\n(km/l) Ciclo WLTC Vehículo Híbrido con Recarga Exterior Consumo de combustible (km/l) (*):"
+    ],
+    "hashes": [
+      "b59fa74b8472"
+    ]
+  },
+  "PHEV_PONDERADO_WLTC_VH_CONSUM_COMBUSTIBLE_KML": {
+    "original_names": [
+      "Ponderado\n(km/l) Ciclo WLTC Vehículo Híbrido con Recarga Exterior Consumo de combustible (km/l) (*):"
+    ],
+    "hashes": [
+      "6b6fc899fa74"
+    ]
+  },
+  "URB_PHEV_CD_CONSUM_CARGA_WLTC_VH_COMBUSTIBLE_KML": {
+    "original_names": [
+      "Urbano sin Autopista\n(km/l) Condición CD: Consumo de carga Ciclo WLTC Vehículo Híbrido con Recarga Exterior Consumo de combustible (km/l) (*):"
+    ],
+    "hashes": [
+      "ac27a53b12eb"
+    ]
+  },
+  "CILINDRADA_LTS": {
+    "original_names": [
+      "Cilindrada (Lts.)"
+    ],
+    "hashes": [
+      "5b7c8364c1ed"
+    ]
+  },
+  "COMBUSTIBLE": {
+    "original_names": [
+      "Combustible"
+    ],
+    "hashes": [
+      "832880bbaaa4"
+    ]
+  },
+  "CODIGO_INFORME_TECNICO": {
+    "original_names": [
+      "Código de Informe Técnico"
+    ],
+    "hashes": [
+      "887c2ce4b41a"
     ]
   },
   "DIST_EJES_MM": {
-    "hash": [
-      "4ec81e4d02b3"
-    ],
-    "default": [
+    "original_names": [
       "Distancia entre ejes (mm)"
+    ],
+    "hashes": [
+      "4ec81e4d02b3"
     ]
   },
-  "ANCHO_VH_MM": {
-    "hash": [
-      "fc1279207098"
+  "EMIS_CO2_GKM": {
+    "original_names": [
+      "Emisiones de CO2 (g/km)"
     ],
-    "default": [
-      "Ancho veh\u00edculo (mm)"
+    "hashes": [
+      "0905cf6e3ea8"
     ]
   },
-  "FOOT_PRINT_M2": {
-    "hash": [
-      "04cd1f1ebffe"
+  "REND_HIGHT_H2_KG_100_KM_FCEV_VH_CELDA": {
+    "original_names": [
+      "Rendimiento (kg/100 km) Hight FCEV (Vehículo Celda de Hidrógeno)"
     ],
-    "default": [
+    "hashes": [
+      "8af7d9183d0a"
+    ]
+  },
+  "REND_LOW_H2_KG_100_KM_FCEV_VH_CELDA": {
+    "original_names": [
+      "Rendimiento (kg/100 km) Low FCEV (Vehículo Celda de Hidrógeno)"
+    ],
+    "hashes": [
+      "1725299aa165"
+    ]
+  },
+  "FECHA_HOML": {
+    "original_names": [
+      "Fecha de Homologación"
+    ],
+    "hashes": [
+      "e0df394ae9fd"
+    ]
+  },
+  "FOOT_PRINT_MT2": {
+    "original_names": [
       "Foot Print (mt2)"
+    ],
+    "hashes": [
+      "04cd1f1ebffe"
     ]
   },
   "IMPORTADOR": {
-    "hash": [
-      "6e134f9c6d58"
-    ],
-    "default": [
+    "original_names": [
       "Importador"
+    ],
+    "hashes": [
+      "6e134f9c6d58"
+    ]
+  },
+  "MARCA": {
+    "original_names": [
+      "Marca"
+    ],
+    "hashes": [
+      "8e2ca9b0cc8a"
+    ]
+  },
+  "MODELO": {
+    "original_names": [
+      "Modelo"
+    ],
+    "hashes": [
+      "a5ab3212dad1"
+    ]
+  },
+  "EMIS_NORMA": {
+    "original_names": [
+      "NORMA EMISIONES"
+    ],
+    "hashes": [
+      "44751a70a3ff"
+    ]
+  },
+  "CO_EMISION_EU_GKM": {
+    "original_names": [
+      "CO \n(g/km) Norma Europea"
+    ],
+    "hashes": [
+      "28eb90e210b0"
+    ]
+  },
+  "HC_EMISION_EU_GKM": {
+    "original_names": [
+      "HC \n(g/km) Norma Europea"
+    ],
+    "hashes": [
+      "c0bddd3f2584"
+    ]
+  },
+  "NOX_EMISION_EU_GKM": {
+    "original_names": [
+      "NOx (g/km) Norma Europea"
+    ],
+    "hashes": [
+      "a6bb3a4e1f30"
+    ]
+  },
+  "HCNM_EMISION_EU_GKM": {
+    "original_names": [
+      "HCNM (g/km) Norma Europea"
+    ],
+    "hashes": [
+      "deaa6294c208"
+    ]
+  },
+  "NMOG_EMISION_EU_GKM": {
+    "original_names": [
+      "NMOG (g/km) Norma Europea"
+    ],
+    "hashes": [
+      "cf50e1e91ce8"
+    ]
+  },
+  "HCHO_EMISION_EU_MGKM": {
+    "original_names": [
+      "HCHO (mg/km) Norma Europea"
+    ],
+    "hashes": [
+      "64888734eaa8"
+    ]
+  },
+  "HC_NOX_EMISION_EU_GKM": {
+    "original_names": [
+      "HC+NOx (g/km) Norma Europea"
+    ],
+    "hashes": [
+      "fd7e16fc9c6e"
+    ]
+  },
+  "MP_EMISION_MASA_PARTICULAS_EU_GKM": {
+    "original_names": [
+      "Masa de Partículas MP (g/km) Norma Europea"
+    ],
+    "hashes": [
+      "a97a0a52d627"
+    ]
+  },
+  "EMISION_NPS_KM_EU_KM": {
+    "original_names": [
+      "Número de Partículas \nP (#/km) Norma Europea"
+    ],
+    "hashes": [
+      "d6f278405e95"
+    ]
+  },
+  "CO_EMISION_EPA_GKM": {
+    "original_names": [
+      "CO   (g/km) Norma USA - EPA  (50.000 / 120.000 - 150.000 millas)"
+    ],
+    "hashes": [
+      "bc61cbc3f392"
+    ]
+  },
+  "HC_EMISION_EPA_GKM": {
+    "original_names": [
+      "HC   (g/km) Norma USA - EPA  (50.000 / 120.000 - 150.000 millas)"
+    ],
+    "hashes": [
+      "e056af99171b"
+    ]
+  },
+  "NOX_EMISION_EPA_GKM": {
+    "original_names": [
+      "NOx (g/km) Norma USA - EPA  (50.000 / 120.000 - 150.000 millas)"
+    ],
+    "hashes": [
+      "e32c32726f94"
+    ]
+  },
+  "NMOG_EMISION_EPA_GKM": {
+    "original_names": [
+      "NMOG (g/km) Norma USA - EPA  (50.000 / 120.000 - 150.000 millas)"
+    ],
+    "hashes": [
+      "357f42953560"
+    ]
+  },
+  "HCHO_EMISION_EPA_MGKM": {
+    "original_names": [
+      "HCHO (mg/km) Norma USA - EPA  (50.000 / 120.000 - 150.000 millas)"
+    ],
+    "hashes": [
+      "f01a0984c532"
+    ]
+  },
+  "MP_EMISION_EPA_MASA_PARTICULAS_GKM": {
+    "original_names": [
+      "Masa de Partículas MP (g/km) Norma USA - EPA  (50.000 / 120.000 - 150.000 millas)"
+    ],
+    "hashes": [
+      "c2e5ddf45644"
+    ]
+  },
+  "HCNM_EMISION_EPA_GKM": {
+    "original_names": [
+      "HCNM (g/km) Norma USA - EPA  (50.000 / 120.000 - 150.000 millas)"
+    ],
+    "hashes": [
+      "748e9bba58a0"
+    ]
+  },
+  "N2O_EMISION_EPA": {
+    "original_names": [
+      "N2O Norma USA - EPA  (50.000 / 120.000 - 150.000 millas)"
+    ],
+    "hashes": [
+      "4df7460839a9"
+    ]
+  },
+  "NMOG_NOX_EMISION_EPA": {
+    "original_names": [
+      "NMOG+NOx Norma USA - EPA  (50.000 / 120.000 - 150.000 millas)"
+    ],
+    "hashes": [
+      "e083cd4c16d5"
+    ]
+  },
+  "CERT": {
+    "original_names": [
+      "N° Cert."
+    ],
+    "hashes": [
+      "a887ff477cda"
+    ]
+  },
+  "PESO_BRUTO_VH_KG": {
+    "original_names": [
+      "P.B.V.              (kg)"
+    ],
+    "hashes": [
+      "0f8ca378c472"
+    ]
+  },
+  "EV_MOTOR_POT_MAX_KW": {
+    "original_names": [
+      "Motor Eléctrico (1) Potencia Máxima del Motor kw"
+    ],
+    "hashes": [
+      "bc5600620ef9"
+    ]
+  },
+  "EV_MOTOR_POT_MAX_KW_1": {
+    "original_names": [
+      "Motor Eléctrico (2) Potencia Máxima del Motor kw"
+    ],
+    "hashes": [
+      "0fe9f6776f2f"
+    ]
+  },
+  "PROPULSION": {
+    "original_names": [
+      "Propulsión"
+    ],
+    "hashes": [
+      "4734109e48a0"
+    ]
+  },
+  "CIUDAD_REND_COMBUSTIBLE_KML": {
+    "original_names": [
+      "Ciudad Rendimiento de \nCombustible (km/l)"
+    ],
+    "hashes": [
+      "ec4c0523ad5a"
+    ]
+  },
+  "CARRETERA_REND_COMBUSTIBLE_KML": {
+    "original_names": [
+      "Carretera Rendimiento de \nCombustible (km/l)"
+    ],
+    "hashes": [
+      "e7be9c8921f1"
+    ]
+  },
+  "MIXTO_REND_COMBUSTIBLE_KML": {
+    "original_names": [
+      "Mixto Rendimiento de \nCombustible (km/l)"
+    ],
+    "hashes": [
+      "d807a04d9934"
+    ]
+  },
+  "URB_REND_WLTC_KML": {
+    "original_names": [
+      "(km/l) Urbano sin Autopista Rendimiento km/l Ciclo WLTC"
+    ],
+    "hashes": [
+      "8734a87c4e96"
+    ]
+  },
+  "URB_AUTOP_REND_URBANA_WLTC_KML": {
+    "original_names": [
+      "(km/l) Urbano con Autopista Urbana Rendimiento km/l Ciclo WLTC"
+    ],
+    "hashes": [
+      "767b222c26ad"
+    ]
+  },
+  "AUTOP_REND_RURAL_WLTC_KML": {
+    "original_names": [
+      "(km/l) Rural con Autopista Rendimiento km/l Ciclo WLTC"
+    ],
+    "hashes": [
+      "1e0ab661fcca"
+    ]
+  },
+  "REND_AUTO_INTERURB_WLTC_KML": {
+    "original_names": [
+      "(km/l) Autopista Interurbana Rendimiento km/l Ciclo WLTC"
+    ],
+    "hashes": [
+      "4e4aa7a67dad"
+    ]
+  },
+  "COMB_REND_WLTC_KML": {
+    "original_names": [
+      "(km/l) Combinado Rendimiento km/l Ciclo WLTC"
+    ],
+    "hashes": [
+      "e4ae95b951a0"
+    ]
+  },
+  "TIPO_CARROCERIA": {
+    "original_names": [
+      "Tipo de Carroceria"
+    ],
+    "hashes": [
+      "0207cce54a62"
+    ]
+  },
+  "TRANSMISION": {
+    "original_names": [
+      "Transmisión"
+    ],
+    "hashes": [
+      "a3c48cd785e9"
+    ]
+  },
+  "REND_EV_VH_KMKWH": {
+    "original_names": [
+      "Rendimiento Eléctrico  (km/kwh) Vehículo Eléctrico Puro"
+    ],
+    "hashes": [
+      "8623517268d7"
+    ]
+  },
+  "COMB_PHEV_REND_EV_CONSUM_CS_MANTEN_CARGA_VH_WLTC_WHKM": {
+    "original_names": [
+      "Consumo combinado\n(Wh/km) Condición CS: Mantenimiento de carga Vehículo Híbrido con Recarga Exterior Ciclo WLTC Consumo y rendimiento eléctrico"
+    ],
+    "hashes": [
+      "9a51eeb35c9e"
+    ]
+  },
+  "PHEV_REND_EV_CONSUM_PONDERADO_VH_WLTC_WHKM": {
+    "original_names": [
+      "Consumo ponderado\n (Wh/km)\n Vehículo Híbrido con Recarga Exterior Ciclo WLTC Consumo y rendimiento eléctrico"
+    ],
+    "hashes": [
+      "ee7d5e159b84"
+    ]
+  },
+  "REND_EV_PHEV_VH_WLTC_CONSUM_KMKWH": {
+    "original_names": [
+      "Rendimiento eléctrico\n(km/kWh) Vehículo Híbrido con Recarga Exterior Ciclo WLTC Consumo y rendimiento eléctrico"
+    ],
+    "hashes": [
+      "1a0d4ce6e6af"
+    ]
+  },
+  "REND_EV_PHEV_PONDERADO_VH_WLTC_CONSUM_KMKWH": {
+    "original_names": [
+      "Rendimiento eléctrico ponderado\n(km/kWh)\n Vehículo Híbrido con Recarga Exterior Ciclo WLTC Consumo y rendimiento eléctrico"
+    ],
+    "hashes": [
+      "e9fb05d16263"
+    ]
+  },
+  "COMB_PHEV_REND_EV_CONSUM_CD_CARGA_VH_WLTC_WHKM": {
+    "original_names": [
+      "Consumo combinado\n(Wh/km) Condición CD: Consumo de carga Vehículo Híbrido con Recarga Exterior Ciclo WLTC Consumo y rendimiento eléctrico"
+    ],
+    "hashes": [
+      "f113cf2ce9f2"
+    ]
+  },
+  "CO2_PHEV_REND_PONDERADO_VH_GKM": {
+    "original_names": [
+      "CO2 Ponderado (g/km) Vehículo Híbrido con Recarga Exterior Rendimiento Ponderado"
+    ],
+    "hashes": [
+      "8848c66a8de3"
+    ]
+  },
+  "PHEV_REND_COMBUSTIBLE_VH_PONDERADO_KML": {
+    "original_names": [
+      "Combustible (km/l) Vehículo Híbrido con Recarga Exterior Rendimiento Ponderado"
+    ],
+    "hashes": [
+      "e746e4a6b50b"
+    ]
+  },
+  "EV_PHEV_REND_VH_PONDERADO_KMKWH": {
+    "original_names": [
+      "Eléctrico (km/kWh) Vehículo Híbrido con Recarga Exterior Rendimiento Ponderado"
+    ],
+    "hashes": [
+      "6754f712635f"
+    ]
+  },
+  "CO2_VH_GAS_GLP_GNC_GRKM": {
+    "original_names": [
+      "CO2 \n(gr/km) Vehículos Duales (Gasolina-GLP / Gasolina -GNC)"
+    ],
+    "hashes": [
+      "553ffb5dec1a"
+    ]
+  },
+  "CIUDAD_REND_GAS_VH_GLP_GNC_KML": {
+    "original_names": [
+      " Ciudad Rendimiento Gasolina (km/l) Vehículos Duales (Gasolina-GLP / Gasolina -GNC)"
+    ],
+    "hashes": [
+      "29440632f600"
+    ]
+  },
+  "CARRETERA_VH_GAS_GLP_GNC": {
+    "original_names": [
+      "Carretera Vehículos Duales (Gasolina-GLP / Gasolina -GNC)"
+    ],
+    "hashes": [
+      "5ee336fb36ac"
+    ]
+  },
+  "MIXTO_VH_GAS_GLP_GNC": {
+    "original_names": [
+      "Mixto Vehículos Duales (Gasolina-GLP / Gasolina -GNC)"
+    ],
+    "hashes": [
+      "03a03e156b4a"
+    ]
+  },
+  "CIUDAD_REND_GLP_GNC_VH_GAS_KML": {
+    "original_names": [
+      " Ciudad Rendimiento (GLP-GNC) (km/l) Vehículos Duales (Gasolina-GLP / Gasolina -GNC)"
+    ],
+    "hashes": [
+      "5ca0bc85fb39"
     ]
   }
 }
