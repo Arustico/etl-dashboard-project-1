@@ -1,4 +1,21 @@
 #====================================
+# PIPELINE
+#====================================
+"""
+    1. Lectura de dataframes
+    2. Identificación de headers por dataframe (crear funcion batch para df)
+    3. Estandarización de headers por df
+    4. Limpieza y transformación por df según columnas
+        4.1 Transformaciones dtype
+        4.2 Estandarización de importadores
+        4.3 Estandarización de Categorias (phev, hev, ev, combustion)
+        4.4 Cálculo de rendimiento según norma
+    5. Guardado df según último año.
+
+
+
+"""
+#====================================
 #%% LIBRERIAS
 #====================================
 import os
@@ -36,28 +53,6 @@ logger = logging.getLogger("transformacion de Data")
 #====================================
 sep = "="*30
 
-def select_columnas_utiles() -> pd.DataFrame:
-    logging.info(f"TRANSFORMACIÓN DE ENCABEZADO...\n{sep}")
-    data = transform_headers_main()
-
-    logging.info(f"FILTRO DE COLUMNAS ÚTILES...\n{sep}")
-    unified_colnames = [list(df.keys()) for df in data]
-    unified_colnames = list(
-        set.intersection(*map(set, unified_colnames))
-        )
-    unified_colnames = [col for col in unified_colnames if (("Unnamed" not in col)and("key_" not in col))]
-    #print(unified_colnames)
-
-    newdata = []
-    for df in data:
-        df2 = df[unified_colnames]
-        newdata.append(df2)
-    # Updating data
-    data = pd.concat(newdata).reset_index(drop=True)
-    logging.info("DATA CARGADA ...")
-    print(f"{sep}\n{data.head(5)}\n{sep}")
-    return data
-
 def estandarizacion_importadores(data: pd.DataFrame) -> pd.DataFrame:
     logging.info("Estandarización de nombres de Importadores")
     filename = FOLDER_PROCESSED / f"{BD_IMPORTADORES}.csv"
@@ -87,7 +82,7 @@ def estandarizacion_importadores(data: pd.DataFrame) -> pd.DataFrame:
     logging.info("Estandarización de importadores completada con éxito")
     return [data,imp_not_found]
 
-def check_data(data: pd.DataFrame) -> None:
+def save_data(data: pd.DataFrame) -> None:
     filename_tmp = FOLDER_TMP / "datos_tmp.csv"
     data.to_csv(filename_tmp)
     logging.info("Visualización temporal en: %s",filename_tmp)
@@ -168,7 +163,7 @@ bools_ev = data['PROPULSION'].isin(['Vehículo eléctrico'])
 #rnd = rnd.fillna(rnd.mean())
 #data.loc[bools_ev,'REND_EQUIV'] = rnd*dens_ener_gas
 
-
-check_data(data)
+#Chequeo
+save_data(data)
 
 

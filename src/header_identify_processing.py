@@ -56,10 +56,10 @@ def modify_header_structure(df_header_cols:pd.DataFrame, levels) -> pd.DataFrame
     # La primera columna corresponde al "padre" de la jerarquía
     df_header_cols.iloc[:,0] = df_header_cols.iloc[:,0].ffill()
     # Si los niveles son más de 2: Cambia los "nan" por "".
-    df_header_cols.iloc[
-        (df_header_cols[levels[1]].isna())
-        &(df_header_cols[levels[2]].isna()),1:3] = ""
-    df_header_cols = df_header_cols.fillna("")
+    # df_header_cols.iloc[
+    #     (df_header_cols[levels[1]].isna())
+    #     &(df_header_cols[levels[2]].isna()),1:3] = ""
+    # df_header_cols = df_header_cols.fillna("")
     # Importante restear el índice acá para conservar estructura original
     df_header_cols = df_header_cols.reset_index()
 
@@ -69,14 +69,17 @@ def modify_header_structure(df_header_cols:pd.DataFrame, levels) -> pd.DataFrame
 def build_flatten_columns_names(df_header_cols: pd.DataFrame, levels: list[int]) -> dict[int, str]:
     """ Reestructura los nombres de los headers uniendolos en un solo nombre para toda la columna según su padre y reconstruye el nombre de la columna de forma plana"""
     newcolsname = []
-
     for parent, gr in df_header_cols.groupby(levels[0]):
-        print(f"PADRE:{parent} GRUPOS:{gr}\n")
+        #print(f"PADRE:{parent} GRUPOS:{gr}\n")
         if len(gr) > 1:
             if len(levels) >= 2:
+                gr[levels[0]] = gr[levels[0]].ffill()
                 gr[levels[1]] = gr[levels[1]].ffill()
-            if len(levels) >= 3:
-                gr[levels[2]] = gr[levels[2]].fillna("")
+                gr[levels[2]] = gr[levels[2]].ffill()
+        if len(levels) >= 3:
+                gr[levels[1]] = gr[levels[1]].ffill()
+                gr[levels[2]] = gr[levels[2]].ffill()#fillna("")
+                #gr[levels[3]] = gr[levels[3]].ffill()#fillna("")
 
         newcolsname.append(gr.fillna(""))
 
@@ -89,7 +92,8 @@ def build_flatten_columns_names(df_header_cols: pd.DataFrame, levels: list[int])
         ),
         axis=1
     )
-
+    newcolsname = newcolsname.sort_index()
+    newcolsname.to_csv("tmp/identificacion_hd.csv")
     return newcolsname.set_index("index")["combcol"].to_dict()
 
 
@@ -97,21 +101,18 @@ def identify_headers(df: pd.DataFrame) -> tuple[int, dict[int, str]]:
     """
     Pipeline completo de identificación de encabezados.
     """
-
     levels_raw = find_header_rows(df)
     levels = select_header_levels(levels_raw)
 
     maxrow = max(levels)
-
     header_matrix = extract_header_dataframe(df, levels)
-    print(f"\nPASO: 'extract_head...'\n {header_matrix}")
+#    print(f"\nPASO: 'extract_head...'\n {header_matrix}")
 
     header_matrix = modify_header_structure(header_matrix, levels)
-    print(f"\nPASO: 'modify_head...'\n {header_matrix}")
-
+    #print(f"\nPASO: 'modify_head...'\n {header_matrix}")
 
     column_names = build_flatten_columns_names(header_matrix, levels)
-    print(f"\nPASO: 'build_flat...'\n {column_names}")
+    #print(f"\nPASO: 'build_flat...'\n {column_names}")
 
     return maxrow, column_names
 

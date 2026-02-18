@@ -143,7 +143,7 @@ class HeaderStandardizerRules:
             'sin':'sin',
             'kg':'kg',
             'duales':'',
-            'gasolina':'gas',
+            'gasolina':'gasol',
             'europea': "eur",
             'homologación':'homl',
             'estándar':'estd',
