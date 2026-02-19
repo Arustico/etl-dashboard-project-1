@@ -678,5 +678,125 @@
     "hashes": [
       "cd8ef466feaa"
     ]
+  },
+  "CO_EMISION_EU_GKM_1": {
+    "original_names": [
+      "CO (g/km) Norma Europea"
+    ],
+    "hashes": [
+      "90af3039fe24"
+    ]
+  },
+  "HC_EMISION_EU_GKM_1": {
+    "original_names": [
+      "HC (g/km) Norma Europea"
+    ],
+    "hashes": [
+      "495aeebe3ea6"
+    ]
+  },
+  "EMISION_NPS_KM_EU_KM_1": {
+    "original_names": [
+      "Número de Partículas P (#/km) Norma Europea"
+    ],
+    "hashes": [
+      "574a5eb465dd"
+    ]
+  },
+  "CO_EPA_NORMA_USA_GKM": {
+    "original_names": [
+      "CO (g/km) Norma USA - EPA"
+    ],
+    "hashes": [
+      "de52bbb7d4e6"
+    ]
+  },
+  "HC_EPA_NORMA_USA_GKM": {
+    "original_names": [
+      "HC (g/km) Norma USA - EPA"
+    ],
+    "hashes": [
+      "753de3c1b1a4"
+    ]
+  },
+  "NOX_EPA_NORMA_USA_GKM": {
+    "original_names": [
+      "NOx (g/km) Norma USA - EPA"
+    ],
+    "hashes": [
+      "daa80c98d29e"
+    ]
+  },
+  "NMOG_EPA_NORMA_USA_GKM": {
+    "original_names": [
+      "NMOG (g/km) Norma USA - EPA"
+    ],
+    "hashes": [
+      "37819940bd25"
+    ]
+  },
+  "HCHO_EPA_NORMA_USA_MGKM": {
+    "original_names": [
+      "HCHO (mg/km) Norma USA - EPA"
+    ],
+    "hashes": [
+      "4359f9b77dec"
+    ]
+  },
+  "MP_EPA_MASA_PARTICULAS_NORMA_USA_GKM": {
+    "original_names": [
+      "Masa de Partículas MP (g/km) Norma USA - EPA"
+    ],
+    "hashes": [
+      "8e3873f9878e"
+    ]
+  },
+  "HCNM_EPA_NORMA_USA_GKM": {
+    "original_names": [
+      "HCNM (g/km) Norma USA - EPA"
+    ],
+    "hashes": [
+      "4f31c3cabb47"
+    ]
+  },
+  "MOTOR_COMBUSTION_POT_MAX_KW": {
+    "original_names": [
+      "Motor Combustión Potencia Máxima \ndel Motor kw"
+    ],
+    "hashes": [
+      "8280ed5a18a2"
+    ]
+  },
+  "EV_MOTOR_POT_MAX_KW_2": {
+    "original_names": [
+      "Motor Eléctrico (1) Potencia Máxima \ndel Motor kw"
+    ],
+    "hashes": [
+      "d64e76d93d54"
+    ]
+  },
+  "EV_MOTOR_POT_MAX_KW_3": {
+    "original_names": [
+      "Motor Eléctrico (2) Potencia Máxima \ndel Motor kw"
+    ],
+    "hashes": [
+      "18f103a43d2a"
+    ]
+  },
+  "HC_NOX_EPA_NORMA_USA_GKM": {
+    "original_names": [
+      "HC+NOx (g/km) Norma USA - EPA"
+    ],
+    "hashes": [
+      "2b9ac34ed3db"
+    ]
+  },
+  "EPA_NPS_KM_NORMA_USA_KM": {
+    "original_names": [
+      "Número de Partículas P (#/km) Norma USA - EPA"
+    ],
+    "hashes": [
+      "5aa4fd1085c5"
+    ]
   }
 }

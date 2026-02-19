@@ -110,8 +110,9 @@ def init_gcp_client(cred: Optional[str] = CREDENTIALS) -> storage.Client:
             client = storage.Client()
         logger.info("Conexión GCP Storage establecida.")
         return client
-    except Exception:
+    except Exception as e:
         logger.exception("No se pudo conectar al Bucket GCP.")
+        print(e)
         raise ConnectionError("No se pudo conectar al Bucket GCP.")
 
 def upload_to_bucket(

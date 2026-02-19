@@ -75,7 +75,7 @@ def build_flatten_columns_names(df_header_cols: pd.DataFrame, levels: list[int])
             if len(levels) >= 2:
                 gr[levels[0]] = gr[levels[0]].ffill()
                 gr[levels[1]] = gr[levels[1]].ffill()
-                gr[levels[2]] = gr[levels[2]].ffill()
+                #gr[levels[2]] = gr[levels[2]].ffill()
         if len(levels) >= 3:
                 gr[levels[1]] = gr[levels[1]].ffill()
                 gr[levels[2]] = gr[levels[2]].ffill()#fillna("")

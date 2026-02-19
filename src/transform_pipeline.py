@@ -192,10 +192,13 @@ def transform_tipe_ldv(df: pd.DataFrame, column: str = "PESO_BRUTO_VH_KG",
     df.loc[(df[column]>=2700)&(df[column]<3860),newcol] = 'mediano'
     return df
 
-def transform_pipeline(df: pd.DataFrame) -> pd.DataFrame:
+def pipeline_transformation(df: pd.DataFrame) -> pd.DataFrame:
     """
     Aplicación del pipeline
     """
+    category_columns = ["PROPULSION","COMBUSTIBLE","CATEGORIA_VH","IMPORTADOR",
+                    "MARCA","MODELO","EMIS_NORMA", "TIPO_CARROCERIA"]
+
     print("="*80)
     logging.info("Transformación de Headers")
     df = transform_headers(df)
@@ -205,6 +208,7 @@ def transform_pipeline(df: pd.DataFrame) -> pd.DataFrame:
     df = transform_category_cols(df,category_columns)
     df = transform_combustible(df)
     df = transform_categoria(df)
+    df = transform_pbv(df)
     df = transform_tipe_ldv(df)
     print("="*80)
     print("\n COMPUTO DE RENDIMIENTO Y CO2")
@@ -220,50 +224,40 @@ def transform_pipeline(df: pd.DataFrame) -> pd.DataFrame:
     print("="*80)
     df,notfounds = standarize_importers(df)
     print("="*80)
-    save_data(df)
     return df
 
 #----------------------------
 # CONFIGURACIONES
 #----------------------------
-load_dotenv("./variables_local.env")
 
-FOLDER_RAW_LOCAL = Path(os.getenv("FOLDER_RAW"))
-FOLDER_TMP = Path(os.getenv("FOLDER_TMP"))
-FOLDER_PROCESSED = os.getenv("FOLDER_PROCESSED")
-COLNAMES_FILE = os.getenv("COLNAMES_FILE")
-RAWDATANAME = os.getenv("RAWDATANAME", "dataRawHom")
-HASH_LENGHT = os.getenv("HASH_LENGHT")
-FILETMPNAME = os.getenv("FILETMPNAME","campos_hom_tmp")
-BD_IMPORTADORES = os.getenv("BD_IMPORTADORES")
+if __name__ == "__main__":
+    load_dotenv("./variables_local.env")
+    FOLDER_RAW_LOCAL = Path(os.getenv("FOLDER_RAW"))
+    FOLDER_TMP = Path(os.getenv("FOLDER_TMP"))
+    FOLDER_PROCESSED = os.getenv("FOLDER_PROCESSED")
+    COLNAMES_FILE = os.getenv("COLNAMES_FILE")
+    RAWDATANAME = os.getenv("RAWDATANAME", "dataRawHom")
+    HASH_LENGHT = os.getenv("HASH_LENGHT")
+    FILETMPNAME = os.getenv("FILETMPNAME","campos_hom_tmp")
+    BD_IMPORTADORES = os.getenv("BD_IMPORTADORES")
 
-# Configuración básica para .log
-LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
-logging.basicConfig(
-    level=LOG_LEVEL,
-    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
-)
+    # Configuración básica para .log
+    LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
+    logging.basicConfig(
+        level=LOG_LEVEL,
+        format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+    )
 
-name_script = Path(__file__).name
-logger = logging.getLogger(f"Transformacion Encabezados ({name_script})...")
+    name_script = Path(__file__).name
+    logger = logging.getLogger(f"Transformacion Encabezados ({name_script})...")
 
-#----------------------------
-# INICIO DE CÓDIGO
-#----------------------------
-category_columns = ["PROPULSION","COMBUSTIBLE","CATEGORIA_VH","IMPORTADOR",
-                    "MARCA","MODELO","EMIS_NORMA", "TIPO_CARROCERIA"]
-
-# Lectura datos
-
-filename = f"{FOLDER_RAW_LOCAL}/{RAWDATANAME}.xls"
-data = read_xls_files(filename)
-
-
-df = data[0]
-# Transformación de datos
-df = transform_pipeline(df)
-
-
+    # Lectura datos
+    filename = f"{FOLDER_RAW_LOCAL}/{RAWDATANAME}.xls"
+    df = read_xls_files(filename,num_sheets=3)[0]
+    # Transformación de datos
+    df = pipeline_transformation(df)
+    save_data(df)
+    print(df)
 
 
 
