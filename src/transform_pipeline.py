@@ -192,6 +192,29 @@ def transform_tipe_ldv(df: pd.DataFrame, column: str = "PESO_BRUTO_VH_KG",
     df.loc[(df[column]>=2700)&(df[column]<3860),newcol] = 'mediano'
     return df
 
+def get_gases_emissions(df:pd.DataFrame) -> pd.DataFrame:
+    columns = {
+            "N2O_GKM": ['N2O_EMISION_EPA'],
+            "MP_GKM": ['MP_EMISION_EPA_MASA_PARTICULAS_GKM','MP_EMISION_MASA_PARTICULAS_EU_GKM'],
+            "NP": ['EMISION_NPS_KM_EU_KM','EPA_NPS_KM_NORMA_USA_KM'],
+            "HCHO_MGKM": ['HCHO_EMISION_EPA_MGKM','HCHO_EMISION_EU_MGKM'],
+            "HC_GKM": ['HC_EMISION_EPA_GKM','HC_EMISION_EU_GKM'],
+            "HC_NOX_GKM": ['HC_NOX_EMISION_EU_GKM'],
+            "HCNM_GKM": ['HCNM_EMISION_EPA_GKM'],
+            "NMOG_NOX_GKM": ["NMOG_NOX_EMISION_EPA"],
+            "NOX_GKM": ['NOX_EMISION_EPA_GKM','NOX_EMISION_EU_GKM'],
+            "NMOG_GKM": ['NMOG_EMISION_EPA_GKM','NMOG_EMISION_EU_GKM'],
+            "CO_GKM": ['CO_EMISION_EPA_GKM','CO_EMISION_EU_GKM'],
+            }
+    for newcol,listcols in columns.items():
+        usedcols = [col for col in listcols if col in df.keys()]
+        for col in usedcols:
+            df[col] = pd.to_numeric(df[col],errors='coerce')
+        df[newcol] = df[usedcols].sum(axis=1,numeric_only=True)/len(usedcols)
+    return df
+
+
+#--- Funcion principal:
 def pipeline_transformation(df: pd.DataFrame) -> pd.DataFrame:
     """
     Aplicación del pipeline
@@ -215,6 +238,7 @@ def pipeline_transformation(df: pd.DataFrame) -> pd.DataFrame:
     print("-"*60)
     df = get_rend_equiv(df)
     df = get_co2_emiss(df)
+    df = get_gases_emissions(df)
     # Tratamientos de valores faltantes
     df.loc[df["CATEGORIA_PROPULSION"]=="bev","EMIS_CO2_EQUIV"]=0
     df["EMIS_CO2_EQUIV"] = df["EMIS_CO2_EQUIV"].fillna(df["EMIS_CO2_EQUIV"].mean().round(2))
