@@ -34,11 +34,8 @@ usedcolumns =[# informativos
             # rendimientos
             'EMIS_CO2_EQUIV','REND_EQUIV_KML',
             # Gases
-            'N2O_EMISION_EPA','MP_EMISION_EPA_MASA_PARTICULAS_GKM','HCHO_EMISION_EPA_MGKM', 'HC_EMISION_EPA_GKM','HCNM_EMISION_EPA_GKM','NMOG_NOX_EMISION_EPA','NOX_EMISION_EPA_GKM',
-            'NMOG_EMISION_EPA_GKM','CO_EMISION_EPA_GKM', # EPA
-            'HCHO_EMISION_EU_MGKM','EMISION_NPS_KM_EU_KM','HC_NOX_EMISION_EU_GKM','EMISION_NPS_KM_EU_KM',
-            'NMOG_EMISION_EU_GKM','HCNM_EMISION_EU_GKM','CO_EMISION_EU_GKM','MP_EMISION_MASA_PARTICULAS_EU_GKM',
-            'NOX_EMISION_EU_GKM','HC_EMISION_EU_GKM', #EU
+            "N2O_GKM", "MP_GKM", "NP","HCHO_MGKM","HC_GKM","HC_NOX_GKM","HCNM_GKM","NMOG_NOX_GKM",
+            "NOX_GKM", "NMOG_GKM", "CO_GKM"
             ]
 
 #----------------------------
@@ -82,7 +79,7 @@ print("="*80)
 # Guardado local
 filename_out = set_filename(df)
 save_data(df, filename_out)
-logging.info("Datos guardados en {filename_out}")
+logging.info(f"Datos guardados en {filename_out}")
 print("="*80)
 
 
