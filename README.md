@@ -1,7 +1,6 @@
 ## Desarrollo de un ETL y dashboard con datos del 3CV
-A continuación este es un primer proyecto que muestra alguno de los trabajos en los que he aportado.
 
-![Diagrama de ETL para datos del 3CV](/home/ariel/Escritorio/Proyectos Profesionales/1. Presentacion/portafolio/arielnunezsalinas.github.io/src/public/diagrams/isoflow-etl-dashboard-v2.png)
+[Diagrama de ETL para datos del 3CV](/home/ariel/Escritorio/Proyectos Profesionales/1. Presentacion/portafolio/arielnunezsalinas.github.io/src/public/diagrams/isoflow-etl-dashboard-v2.png)
 
 ### Objetivo
 El objetivo es la creacion de un proceso de extraccion transformacion y carga de datos para ser utilizados con un dashboard que presente algunos analisis entorno a los datos. Los datos corresponden al [Centro de Control y Certificación Vehicular 3CV](https://www.subtrans.gob.cl/3cv/homologacion-de-vehiculos-livianos-medianos-y-motocicletas/) que son pruebas de homologación a vehículos nuevos que entran al mercado chileno. Estos datos han permitido realizar distintos avances legislativos y controles que han derivado en estratégias para descarbonizar, y mejorar la tecnología entrante al país. 
